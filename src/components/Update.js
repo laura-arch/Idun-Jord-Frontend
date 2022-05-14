@@ -23,26 +23,28 @@ const UpdatePlant = () => {
       setPlantId(result.id);
       console.log(plantId);
       // Setting the form data with current plant values
-      setFormData({ ...formData, name: plant.name });
-      setFormData({ ...formData, image: plant.image });
-      setFormData({ ...formData, category: plant.category });
-      setFormData({ ...formData, height: plant.height });
       setFormData({
         ...formData,
-        watering_frequency: plant.watering_frequency,
+        price: result.price,
+        pot_size: result.pot_size,
+        light_tolerance: result.light_tolerance,
+        soil: result.soil,
+        watering_frequency: result.watering_frequency,
+        height: result.height,
+        category: result.category,
+        image: result.image,
+        name: result.name,
       });
-      setFormData({ ...formData, soil: plant.soil });
-      setFormData({ ...formData, light_tolerance: plant.light_tolerance });
-      setFormData({ ...formData, pot_size: plant.pot_size });
-      setFormData({ ...formData, price: plant.price });
-      await console.log(formData);
+      console.log(formData);
     };
     fetchPlant();
   }, []);
 
+  console.log("Form Data", formData);
   // Handling onChange
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(e.target);
     console.log(formData);
     setSubmitted(false);
   };
@@ -104,6 +106,7 @@ const UpdatePlant = () => {
           placeholder="Plant name"
           name="name"
           defaultValue={plant.name}
+          // value={formData.name}
           onChange={onChange}
         />
         <input
