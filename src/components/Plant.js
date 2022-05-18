@@ -35,8 +35,27 @@ const Plant = () => {
 
   return (
     <div className="app-content">
-      <h1 className="main-heading">{plant.name}</h1>
-      <img className="main-image" src={plant.image}></img>
+      <div className="columns-container">
+        <img className="main-image" src={plant.image}></img>
+        <div>
+          <h1 className="main-heading">{plant.name}</h1>
+          <p>
+            Price: £{plant.price}
+            <br />
+            Category: {plant.category}
+            <br />
+            Height: {plant.height}cm
+            <br />
+            Pot-size: {plant.pot_size}cm
+            <br />
+            When to water: {plant.watering_frequency}
+            <br />
+            What soil I like: {plant.soil}
+            <br />
+            How much sun I need: {plant.light_tolerance}
+          </p>
+        </div>
+      </div>
       <button className="button" onClick={() => navigate("/")}>
         Home
       </button>
